@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Getting Started With Vue 3</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../pandoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Getting Started With Vue 3</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#installation-and-setup">Installation and Setup</a></li>
+<li><a href="#project-structure">Project Structure</a></li>
+<li><a href="#vuejs-hooks">Vuejs Hooks</a>
+<ul>
+<li><a href="#beforecreate">beforeCreate()</a></li>
+<li><a href="#created">Created()</a></li>
+<li><a href="#mounted">mounted()</a></li>
+<li><a href="#updated">updated()</a></li>
+</ul></li>
+<li><a href="#vue-expressions">Vue Expressions</a>
+<ul>
+<li><a href="#more-examples">More Examples</a></li>
+</ul></li>
+<li><a href="#vue-directives">Vue Directives</a></li>
+</ul>
+</nav>
+<h2 id="installation-and-setup">Installation and Setup</h2>
+<p>Below are the steps required for installing the vue cli and creating a new project</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="ex">npm</span> i -g @vue/cli</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="ex">vue</span> create project-name</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">yarn</span> serve</span></code></pre></div>
+<h2 id="project-structure">Project Structure</h2>
+<p>Below is the structure of a vuejs project.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>├── public</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>│   ├── favicon.ico</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>│   └── index.html -- template where components get injected</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>├── README.md</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>├── src</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>│   ├── App.vue -- master vue component</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>│   ├── assets -- asset store</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>│   │   └── logo.png</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>│   ├── components -- component store</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>│   │   └── HelloWorld.vue -- secondary component</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>│   └── main.js -- responsible for mounting App.vue to index</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>└── yarn.lock</span></code></pre></div>
+<h2 id="vuejs-hooks">Vuejs Hooks</h2>
+<p>Vuejs comes with many methods that can be used for various different reasons. These are pretty much all self explanatory. Here are a list of most of the hooks :</p>
+<ul>
+<li>beforeCreate() - before compoenent is created</li>
+<li>created() - upon the components creation</li>
+<li>beforeMount() - before the compoenent is mounted to DOM</li>
+<li>mounted() - upon the compoenent being mounted to DOM</li>
+<li>beforeUpdate() - before data is updated</li>
+<li>updated() - upon data being updated</li>
+<li>beforeDestroy() - before component is destroyed</li>
+<li>destroyed() - upon component being destroyed. i.e. routing unmount</li>
+</ul>
+<h3 id="beforecreate">beforeCreate()</h3>
+<p>The beforeCreate hook runs at the very initialization of your component. data has not been made reactive, and events have not been set up yet</p>
+<h3 id="created">Created()</h3>
+<p>You are able to access the component’s reactive data and modify them. Templates and Virtual DOM have not yet been mounted or rendered</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="im">export</span> <span class="im">default</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;App&#39;</span><span class="op">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="fu">created</span>(){</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;compoenent created but not mounted&#39;</span>)<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  }</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="mounted">mounted()</h3>
+<p>compoenent has been mounted and you have full access to the reactive data, templates, and rendered DOM elements</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="im">export</span> <span class="im">default</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;App&#39;</span><span class="op">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>  <span class="fu">mounted</span>(){</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;compoenent created and mounted&#39;</span>)<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>  }</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>}</span></code></pre></div>
+<h3 id="updated">updated()</h3>
+<p>called when ever a component’s reactive data property is changed</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="im">export</span> <span class="im">default</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  <span class="fu">data</span>(){</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>   <span class="cf">return</span>{</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="dt">foo</span><span class="op">:</span> <span class="st">&#39;herro&#39;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>   }</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>  <span class="fu">mounted</span>(){</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>   <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;component mounted. foo equals (herro) : &#39;</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">foo</span>)<span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>   <span class="kw">this</span><span class="op">.</span><span class="at">foo</span> <span class="op">=</span> <span class="st">&quot;bar&quot;</span> <span class="co">//changing foo equal to bar</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>  <span class="fu">updated</span>(){</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>   <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;foo updated to (bar) &quot;</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">foo</span>)<span class="op">;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="vue-expressions">Vue Expressions</h2>
+<p>The text inside the mustache tags { } are called binding expressions. These consist of a single javascript expression and can optionally have a filter. Here is a basic example of using expression :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>{{ myVariable }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="op">&lt;</span>script<span class="op">&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>  <span class="im">export</span> <span class="im">default</span>{</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>    <span class="fu">data</span>(){</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>      <span class="cf">return</span>{</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>        <span class="dt">myVariable</span><span class="op">:</span><span class="st">&#39;Hello World&#39;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>      }</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    }</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>  }</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a><span class="op">&lt;/</span>script<span class="op">&gt;</span></span></code></pre></div>
+<p>This produces the following output :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>Hello World</span></code></pre></div>
+<h3 id="more-examples">More Examples</h3>
+<p>Because vue expressions can make use of regular javascript they can be used very powerfully. Here a some examples :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co">//If myString equals foo then return &quot;Foo&quot; else return &quot;Bar&quot;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>{{ myString <span class="op">===</span> <span class="st">&quot;Foo&quot;</span> <span class="op">?</span> <span class="st">&quot;Foo&quot;</span> <span class="op">:</span> <span class="st">&quot;Bar&quot;</span> }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="co">//Get each item in array and square root dem</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>{{ myArray<span class="op">.</span><span class="fu">map</span>(t <span class="kw">=&gt;</span> t <span class="op">**</span> <span class="dv">2</span>) }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a><span class="op">&lt;</span>script<span class="op">&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>  <span class="im">export</span> <span class="im">default</span>{</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>    <span class="fu">data</span>(){</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a>      <span class="cf">return</span>{</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a>        <span class="dt">myArray</span><span class="op">:</span>[<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span>]<span class="op">,</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a>        <span class="dt">myString</span><span class="op">:</span><span class="st">&#39;foo&#39;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a>      }</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a>    }</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a>  }</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a><span class="op">&lt;/</span>script<span class="op">&gt;</span></span></code></pre></div>
+<p>This produces the following output :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>Foo is Foo</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>[ 1, 4, 9, 16, 25 ]</span></code></pre></div>
+<h2 id="vue-directives">Vue Directives</h2>
+<p>HTML attributes created by vue that allow your elements to be reactive. Here are some of the available vuejs directives :</p>
+<ul>
+<li>v-if</li>
+<li>v-bind</li>
+<li>v-once</li>
+<li>v-model</li>
+<li>v-on (click, keyup, keydown)</li>
+<li>v-for</li>
+<li>v-text</li>
+<li>v-html</li>
+<li>v-pre</li>
+<li>v-ref</li>
+<li>v-show</li>
+<li>v-transition</li>
+</ul>
+<p>Below is an example of the <code>v-once</code> directive :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="co">//The v-once directive forces the html element to rendered only once</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="co">//Thus it is NOT being updated to &quot;Bar&quot;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="op">&lt;</span>p v<span class="op">-</span>once<span class="op">&gt;</span>{{ myString }}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a><span class="op">&lt;</span>script<span class="op">&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>  <span class="im">export</span> <span class="im">default</span>{</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    <span class="fu">data</span>(){</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>      <span class="cf">return</span>{</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>        <span class="dt">myString</span><span class="op">:</span><span class="st">&quot;Foo&quot;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>      }</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>    }<span class="op">,</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a>    <span class="fu">mounted</span>(){</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>      <span class="kw">this</span><span class="op">.</span><span class="at">myString</span> <span class="op">=</span> <span class="st">&quot;Bar&quot;</span><span class="op">;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>    }</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>  }</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a><span class="op">&lt;/</span>script<span class="op">&gt;</span></span></code></pre></div>
+<p>This produces the following output :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>Foo</span></code></pre></div>
+</body>
+</html>
