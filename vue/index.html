@@ -106,7 +106,6 @@
 <ul>
 <li><a href="#hooks-and-watches-in-composition-api">Hooks and Watches in Composition API</a></li>
 <li><a href="#accessing-the-router">Accessing The Router</a></li>
-<li><a href="#es6-syntax-used-in-composition-api">ES6 Syntax Used in Composition API</a></li>
 </ul></li>
 <li><a href="#introduction-to-vuex">Introduction to Vuex</a>
 <ul>
@@ -330,60 +329,36 @@
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a><span class="fu">setup</span>(){</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a>  <span class="kw">const</span> mefunky <span class="op">=</span> () <span class="kw">=&gt;</span> router<span class="op">.</span><span class="fu">go</span>()</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a>}</span></code></pre></div>
-<h3 id="es6-syntax-used-in-composition-api">ES6 Syntax Used in Composition API</h3>
-<p>The composition api makes use of the funky es6 arrow functions like so :</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="co">//Old Javascript Function</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">MyFunction</span>(){</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>  <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a>}</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a><span class="co">//New ES6 Function</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a><span class="kw">const</span> MyFunction <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a><span class="co">//New ES6 Function Expanded</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a><span class="kw">const</span> MyFunction <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a> <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>}</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a><span class="co">//Old Javascript Function</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a><span class="pp">setTimeout</span>(<span class="kw">function</span>(){</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;1 second delay&#39;</span>)</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a>}<span class="op">,</span> <span class="dv">1000</span>)</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true"></a><span class="co">//New ES6 Function</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true"></a><span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;1 second delay&#39;</span>)</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true"></a>}<span class="op">,</span> <span class="dv">1000</span>)</span></code></pre></div>
 <h2 id="introduction-to-vuex">Introduction to Vuex</h2>
 <p>Vuex is essentially a global state whereby every component can read and write to the store.</p>
 <h3 id="installing-vuex">Installing Vuex</h3>
 <p>Install it via the following commands :</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="ex">yarn</span> add vuex@next --save</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="fu">mkdir</span> src/store <span class="co">#create if not already created</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="fu">touch</span> src/store/index.js <span class="co">#create if not already created</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="ex">yarn</span> add vuex@next --save</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="fu">mkdir</span> src/store <span class="co">#create if not already created</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a><span class="fu">touch</span> src/store/index.js <span class="co">#create if not already created</span></span></code></pre></div>
 <h4 id="contents-of-srcstoreindex.js">Contents of src/store/index.js :</h4>
-<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="im">import</span> { createStore } <span class="im">from</span> <span class="st">&#39;vuex&#39;</span><span class="op">;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a><span class="im">export</span> <span class="im">default</span> <span class="fu">createStore</span>({</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>  <span class="dt">state</span><span class="op">:</span>{</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>    <span class="dt">user</span><span class="op">:</span><span class="st">&#39;Bill Jones&#39;</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>  }<span class="op">,</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true"></a>  <span class="dt">mutations</span><span class="op">:</span>{</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true"></a>    <span class="fu">SET_USER</span>(state<span class="op">,</span> user){</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true"></a>      state<span class="op">.</span><span class="at">user</span> <span class="op">=</span> user<span class="op">;</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true"></a>    }</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true"></a>  }<span class="op">,</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true"></a>  <span class="dt">actions</span><span class="op">:</span>{</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true"></a>    <span class="fu">setUser</span>({ commit }<span class="op">,</span> user){</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true"></a>      <span class="fu">commit</span>(<span class="st">&#39;SET_USER&#39;</span><span class="op">,</span> user)<span class="op">;</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true"></a>    }</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true"></a>  }<span class="op">,</span></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true"></a></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true"></a>  <span class="dt">modules</span><span class="op">:</span>{</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true"></a>  }</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true"></a></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="im">import</span> { createStore } <span class="im">from</span> <span class="st">&#39;vuex&#39;</span><span class="op">;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="im">export</span> <span class="im">default</span> <span class="fu">createStore</span>({</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>  <span class="dt">state</span><span class="op">:</span>{</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>    <span class="dt">user</span><span class="op">:</span><span class="st">&#39;Bill Jones&#39;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a>  <span class="dt">mutations</span><span class="op">:</span>{</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a>    <span class="fu">SET_USER</span>(state<span class="op">,</span> user){</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a>      state<span class="op">.</span><span class="at">user</span> <span class="op">=</span> user<span class="op">;</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a>    }</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true"></a>  <span class="dt">actions</span><span class="op">:</span>{</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true"></a>    <span class="fu">setUser</span>({ commit }<span class="op">,</span> user){</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a>      <span class="fu">commit</span>(<span class="st">&#39;SET_USER&#39;</span><span class="op">,</span> user)<span class="op">;</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true"></a>    }</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true"></a>  <span class="dt">modules</span><span class="op">:</span>{</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true"></a>  }</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true"></a>})</span></code></pre></div>
 <h3 id="state-vs-mutations-vs-actions-vs-modules">State vs Mutations vs Actions vs Modules</h3>
 <ul>
 <li>State : the store where you define your data variables (e.g. user : “bill”)</li>
@@ -393,59 +368,59 @@
 </ul>
 <h3 id="running-actions-from-components">Running Actions From Components</h3>
 <p>You run actions from your component. These then trigger the mutation and thus update the store’s data Here is an example component making use of the action <code>setUser</code> as defined above :</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="im">import</span> { useStore } <span class="im">from</span> <span class="st">&#39;vuex&#39;</span><span class="op">;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="kw">const</span> store <span class="op">=</span> <span class="fu">useStore</span>()<span class="op">;</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a><span class="kw">const</span> updateStore <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>  store<span class="op">.</span><span class="fu">dispatch</span>(<span class="st">&#39;setUser&#39;</span><span class="op">,</span> <span class="st">&#39;John Doe&#39;</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="im">import</span> { useStore } <span class="im">from</span> <span class="st">&#39;vuex&#39;</span><span class="op">;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="kw">const</span> store <span class="op">=</span> <span class="fu">useStore</span>()<span class="op">;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a><span class="kw">const</span> updateStore <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a>  store<span class="op">.</span><span class="fu">dispatch</span>(<span class="st">&#39;setUser&#39;</span><span class="op">,</span> <span class="st">&#39;John Doe&#39;</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a>}</span></code></pre></div>
 <h3 id="making-use-of-modules">Making Use of Modules</h3>
 <p>Modules allow you to seperate your data into their own files. Modules are stored in <code>src/store/</code> and are called <code>module.js</code> Here is the updated <code>src/store/index.js</code> file :</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="im">import</span> { createStore } <span class="im">from</span> <span class="st">&#39;vuex&#39;</span><span class="op">;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="im">import</span> { UserModule } <span class="im">from</span> <span class="st">&#39;./user&#39;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a><span class="im">export</span> <span class="im">default</span> <span class="fu">createStore</span>({</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>  <span class="dt">state</span><span class="op">:</span>{}<span class="op">,</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a>  <span class="dt">mutations</span><span class="op">:</span>{}<span class="op">,</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a>  <span class="dt">actions</span><span class="op">:</span>{}<span class="op">,</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a>  <span class="dt">modules</span><span class="op">:</span>{</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true"></a>    <span class="dt">User</span> <span class="op">:</span> UserModule</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true"></a>  }</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="im">import</span> { createStore } <span class="im">from</span> <span class="st">&#39;vuex&#39;</span><span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="im">import</span> { UserModule } <span class="im">from</span> <span class="st">&#39;./user&#39;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a><span class="im">export</span> <span class="im">default</span> <span class="fu">createStore</span>({</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>  <span class="dt">state</span><span class="op">:</span>{}<span class="op">,</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>  <span class="dt">mutations</span><span class="op">:</span>{}<span class="op">,</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a>  <span class="dt">actions</span><span class="op">:</span>{}<span class="op">,</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true"></a>  <span class="dt">modules</span><span class="op">:</span>{</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a>    <span class="dt">User</span> <span class="op">:</span> UserModule</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true"></a>  }</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true"></a>})</span></code></pre></div>
 <p>Import the new module (<code>UserModule</code>) and then declare it in the modules section with a name of your chooising (<code>User</code>). Your data then goes in the (<code>src/store/user.js</code>) file and looks like this :</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="im">export</span> <span class="kw">const</span> UserModule <span class="op">=</span> {</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>  <span class="dt">namespaced</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>  <span class="dt">state</span><span class="op">:</span>{</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>   <span class="dt">firstname</span><span class="op">:</span><span class="st">&#39;Bill&#39;</span><span class="op">,</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a>   <span class="dt">lastname</span><span class="op">:</span><span class="st">&#39;Jones&#39;</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a>  }<span class="op">,</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true"></a>  <span class="dt">mutations</span><span class="op">:</span>{</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true"></a>   <span class="fu">SET_USER</span>(state<span class="op">,</span> [firstname<span class="op">,</span> lastname]){</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true"></a>    state<span class="op">.</span><span class="at">firstname</span> <span class="op">=</span> firstname<span class="op">;</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true"></a>    state<span class="op">.</span><span class="at">lastname</span> <span class="op">=</span> lastname<span class="op">;</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true"></a>   }</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true"></a>  }<span class="op">,</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true"></a></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true"></a>  <span class="dt">actions</span><span class="op">:</span>{</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true"></a>   <span class="fu">setUser</span>({ commit }<span class="op">,</span> [firstname<span class="op">,</span> lastname]){</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true"></a>    <span class="fu">commit</span>(<span class="st">&#39;SET_USER&#39;</span><span class="op">,</span> [firstname<span class="op">,</span> lastname])<span class="op">;</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true"></a>   }</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true"></a>  }<span class="op">,</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="im">export</span> <span class="kw">const</span> UserModule <span class="op">=</span> {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>  <span class="dt">namespaced</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>  <span class="dt">state</span><span class="op">:</span>{</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a>   <span class="dt">firstname</span><span class="op">:</span><span class="st">&#39;Bill&#39;</span><span class="op">,</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a>   <span class="dt">lastname</span><span class="op">:</span><span class="st">&#39;Jones&#39;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true"></a>  <span class="dt">mutations</span><span class="op">:</span>{</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true"></a>   <span class="fu">SET_USER</span>(state<span class="op">,</span> [firstname<span class="op">,</span> lastname]){</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true"></a>    state<span class="op">.</span><span class="at">firstname</span> <span class="op">=</span> firstname<span class="op">;</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true"></a>    state<span class="op">.</span><span class="at">lastname</span> <span class="op">=</span> lastname<span class="op">;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true"></a>   }</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true"></a>  <span class="dt">actions</span><span class="op">:</span>{</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true"></a>   <span class="fu">setUser</span>({ commit }<span class="op">,</span> [firstname<span class="op">,</span> lastname]){</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true"></a>    <span class="fu">commit</span>(<span class="st">&#39;SET_USER&#39;</span><span class="op">,</span> [firstname<span class="op">,</span> lastname])<span class="op">;</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true"></a>   }</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true"></a>  }<span class="op">,</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true"></a>}</span></code></pre></div>
 <p>Finally, you then reference your module actions by module / action (<code>User/setUser</code>) and in the template reference store.state.module.data (remebering to return store) like so :</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="op">&lt;</span>h1<span class="op">&gt;</span>{{ store<span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">User</span><span class="op">.</span><span class="at">firstname</span> }}<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a><span class="fu">setup</span>(){</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a>  <span class="kw">const</span> myFunc <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a>    store<span class="op">.</span><span class="fu">dispatch</span>(<span class="st">&#39;User/setUser&#39;</span><span class="op">,</span> [<span class="st">&#39;John&#39;</span><span class="op">,</span> <span class="st">&#39;Doe&#39;</span>])</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a>  }</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a>  <span class="cf">return</span> {</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a>    store</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a>  }</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="op">&lt;</span>h1<span class="op">&gt;</span>{{ store<span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">User</span><span class="op">.</span><span class="at">firstname</span> }}<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a><span class="fu">setup</span>(){</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>  <span class="kw">const</span> myFunc <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a>    store<span class="op">.</span><span class="fu">dispatch</span>(<span class="st">&#39;User/setUser&#39;</span><span class="op">,</span> [<span class="st">&#39;John&#39;</span><span class="op">,</span> <span class="st">&#39;Doe&#39;</span>])</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a>  }</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true"></a>  <span class="cf">return</span> {</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true"></a>    store</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true"></a>  }</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true"></a>}</span></code></pre></div>
 </body>
 </html>

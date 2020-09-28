@@ -252,32 +252,6 @@ setup(){
 }
 ```
 
-### ES6 Syntax Used in Composition API
-The composition api makes use of the funky es6 arrow functions like so :
-```js
-//Old Javascript Function
-function MyFunction(){
-  return Math.random
-}
-
-//New ES6 Function
-const MyFunction = () => Math.random
-
-//New ES6 Function Expanded
-const MyFunction = () => {
- return Math.random
-}
-
-//Old Javascript Function
-setTimeout(function(){
-  console.log('1 second delay')
-}, 1000)
-
-//New ES6 Function
-setTimeout(() => {
-  console.log('1 second delay')
-}, 1000)
-```
 ## Introduction to Vuex
 Vuex is essentially a global state whereby every component can read and write to the store.
 
